@@ -1,0 +1,306 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20192.19.0515.1630                               -->
+<workbook original-version='18.1' source-build='2019.2.0 (20192.19.0515.1630)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <SheetIdentifierTracking ignorable='true' predowngraded='true' />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='Sheet1 (Waterfall sample)' inline='true' name='federated.1kv5wdm0z4ek2b1b72e630h9zqbl' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='Waterfall sample' name='excel-direct.0dyo1cr0pff8qf183cfam0jwj3ud'>
+            <connection class='excel-direct' cleaning='no' compat='no' dataRefreshTime='' filename='D:/Base Repo/Datasets/Waterfall sample.xlsx' interpretationMode='0' password='' server='' validate='no' />
+          </named-connection>
+        </named-connections>
+        <relation connection='excel-direct.0dyo1cr0pff8qf183cfam0jwj3ud' name='Sheet1' table='[Sheet1$]' type='table'>
+          <columns gridOrigin='A1:B8:no:A1:B8:0' header='yes' outcome='6'>
+            <column datatype='string' name='Component' ordinal='0' />
+            <column datatype='real' name='Value' ordinal='1' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>Component</remote-name>
+            <remote-type>130</remote-type>
+            <local-name>[Component]</local-name>
+            <parent-name>[Sheet1]</parent-name>
+            <remote-alias>Component</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='1' name='LEN_RUS_S2' />
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;WSTR&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Value</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Value]</local-name>
+            <parent-name>[Sheet1]</parent-name>
+            <remote-alias>Value</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>15</precision>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='DebugRemoteType'>&quot;R8&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Sheet1]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='integer' name='context'>2</attribute>
+              <attribute datatype='string' name='gridOrigin'>&quot;A1:B8:no:A1:B8:0&quot;</attribute>
+              <attribute datatype='boolean' name='header'>true</attribute>
+              <attribute datatype='integer' name='outcome'>6</attribute>
+            </attributes>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Profit - Neg' datatype='real' name='[Calculation_193936270835589120]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='SUM([Value])*-1' />
+      </column>
+      <column caption='Component1' datatype='string' name='[Component]' role='dimension' type='nominal' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column datatype='real' name='[Value]' role='measure' type='quantitative' />
+      <column-instance column='[Value]' derivation='Sum' name='[cum:sum:Value:qk:1]' pivot='key' type='quantitative'>
+        <table-calc aggregation='Sum' ordering-field='[federated.1kv5wdm0z4ek2b1b72e630h9zqbl].[none:Component:nk]' ordering-type='Field' type='CumTotal' />
+      </column-instance>
+      <column-instance column='[Value]' derivation='Sum' name='[cum:sum:Value:qk]' pivot='key' type='quantitative'>
+        <table-calc aggregation='Sum' ordering-type='Rows' type='CumTotal' />
+      </column-instance>
+      <column-instance column='[Component]' derivation='None' name='[none:Component:nk]' pivot='key' type='nominal' />
+      <column-instance column='[Value]' derivation='Sum' name='[sum:Value:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Calculation_193936270835589120]' derivation='User' name='[usr:Calculation_193936270835589120:qk]' pivot='key' type='quantitative' />
+      <group caption='Set 1' name='[Set 1]' name-style='unqualified' user:ui-builder='lasso-group'>
+        <groupfilter function='union'>
+          <groupfilter function='member' level='[Component]' member='&quot;A&amp;CP&quot;' />
+          <groupfilter function='member' level='[Component]' member='&quot;G&amp;A&quot;' />
+          <groupfilter function='member' level='[Component]' member='&quot;MAC&quot;' />
+          <groupfilter function='member' level='[Component]' member='&quot;Other Costs&quot;' />
+          <groupfilter function='member' level='[Component]' member='&quot;Other F&amp;S&quot;' />
+        </groupfilter>
+      </group>
+      <layout dim-ordering='alphabetic' dim-percentage='0.343629' group-percentage='0.289575' measure-ordering='alphabetic' measure-percentage='0.366795' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1kv5wdm0z4ek2b1b72e630h9zqbl].[cum:sum:Value:qk:1]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1kv5wdm0z4ek2b1b72e630h9zqbl].[cum:sum:Value:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1kv5wdm0z4ek2b1b72e630h9zqbl].[sum:Value:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1kv5wdm0z4ek2b1b72e630h9zqbl].[usr:Calculation_193936270835589120:qk]&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Sheet 1'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Sheet1 (Waterfall sample)' name='federated.1kv5wdm0z4ek2b1b72e630h9zqbl' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1kv5wdm0z4ek2b1b72e630h9zqbl'>
+            <column caption='Profit - Neg' datatype='real' name='[Calculation_193936270835589120]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='SUM([Value])*-1' />
+            </column>
+            <column caption='Component1' datatype='string' name='[Component]' role='dimension' type='nominal' />
+            <column datatype='real' name='[Value]' role='measure' type='quantitative' />
+            <column-instance column='[Value]' derivation='Sum' name='[cum:sum:Value:qk]' pivot='key' type='quantitative'>
+              <table-calc aggregation='Sum' ordering-type='Rows' type='CumTotal' />
+            </column-instance>
+            <column-instance column='[Component]' derivation='None' name='[none:Component:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_193936270835589120]' derivation='User' name='[usr:Calculation_193936270835589120:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1kv5wdm0z4ek2b1b72e630h9zqbl].[none:Component:nk]'>
+            <groupfilter from='&quot;A&quot;' function='range' level='[none:Component:nk]' to='&quot;E&quot;' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.1kv5wdm0z4ek2b1b72e630h9zqbl].[none:Component:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='height' field='[federated.1kv5wdm0z4ek2b1b72e630h9zqbl].[none:Component:nk]' value='49' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='width' field='[federated.1kv5wdm0z4ek2b1b72e630h9zqbl].[none:Component:nk]' value='117' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='size-bar' field='[federated.1kv5wdm0z4ek2b1b72e630h9zqbl].[cum:sum:Value:qk]' field-type='quantitative' max-size='1' min-size='0.005' type='centersize' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='GanttBar' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.1kv5wdm0z4ek2b1b72e630h9zqbl].[usr:Calculation_193936270835589120:qk]' />
+              <size column='[federated.1kv5wdm0z4ek2b1b72e630h9zqbl].[usr:Calculation_193936270835589120:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='1.7031491994857788' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+                <format attr='minheight' value='291' />
+                <format attr='maxheight' value='291' />
+                <format attr='aspect' value='0' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1kv5wdm0z4ek2b1b72e630h9zqbl].[cum:sum:Value:qk]</rows>
+        <cols total='true'>[federated.1kv5wdm0z4ek2b1b72e630h9zqbl].[none:Component:nk]</cols>
+      </table>
+      <simple-id uuid='{456C2A93-C629-423D-9029-A3CE39F9ACA0}' />
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' maximized='true' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.1kv5wdm0z4ek2b1b72e630h9zqbl].[usr:Calculation_193936270835589120:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.1kv5wdm0z4ek2b1b72e630h9zqbl].[none:Component:nk]</field>
+            <field>[federated.1kv5wdm0z4ek2b1b72e630h9zqbl].[usr:Calculation_193936270835589120:qk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{CB314E1F-8B86-4F0F-854F-D2BEB0926864}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='Sheet 1' width='192'>
+      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
+    </thumbnail>
+  </thumbnails>
+</workbook>
